@@ -1,0 +1,10 @@
+cd $HOME
+
+ln -sf ~/dotfiles/dircolors ~/dircolors
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.gitignore ~/.gitignore
+ln -sf ~/dotfiles/.zshrc ~/.zshrc
+
+if ! command -v rg &> /dev/null; then
+  sudo apt-get install -y ripgrep
+fi

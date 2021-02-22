@@ -1,0 +1,1 @@
+simplified version of dersam/zotfiles for use over ssh.
