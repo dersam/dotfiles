@@ -160,3 +160,6 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[user]
+	name = Sam Schmidt
+	email = sam.schmidt@shopify.com
