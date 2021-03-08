@@ -80,7 +80,7 @@
 	safecrlf = true
 
 	# In reference to https://github.com/gmarik/Vundle.vim/issues/167
-	editor = /usr/local/bin/vim
+	editor = /usr/bin/vim
 
 	ignorecase = false
 
