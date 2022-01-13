@@ -28,6 +28,7 @@ source $DF_CORE/formatting.zsh
 
 # Load configs for MacOS. Does nothing if not on MacOS
 if [ "$ZSH_HOST_OS" = "darwin" ]; then
+  [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
   source $DF_CORE/macos.zsh
   if [ -e $DF_USER/macos.zsh ]; then
     source $DF_USER/macos.zsh
