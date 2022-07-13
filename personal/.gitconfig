@@ -4,4 +4,4 @@
   pager=cat
 
 [commit]
-	gpgSign = true
+  gpgSign = true
