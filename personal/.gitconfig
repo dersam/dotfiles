@@ -2,6 +2,3 @@
 
 [core]
   pager=cat
-
-[commit]
-  gpgSign = true
