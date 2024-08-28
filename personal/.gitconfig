@@ -7,3 +7,5 @@
 [alias]
     # Add all, and amend last commit to include those changes
 	ac = "!git add . && git commend"
+[core]
+  pager=cat
