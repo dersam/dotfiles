@@ -1,1 +1,9 @@
 # Add your preferred git settings here. This will overwrite anything in `core/configs/.gitconfig`.
+[user]
+	name = Sam Schmidt
+	email = sam.schmidt@shopify.com
+[push]
+	autoSetupRemote = true
+[alias]
+    # Add all, and amend last commit to include those changes
+	ac = "!git add . && git commend"
