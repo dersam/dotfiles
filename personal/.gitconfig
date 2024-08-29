@@ -9,3 +9,4 @@
 	ac = "!git add . && git commend"
 [core]
   pager=cat
+  editor = code --wait
