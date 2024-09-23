@@ -5,4 +5,5 @@
 
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
   RPROMPT=''
+  _1RIGHT=''
 fi
