@@ -58,6 +58,7 @@
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
 
+
 [color "branch"]
 
 	current = yellow reverse
@@ -103,3 +104,12 @@
 	autoupdate = true
 [rebase]
 	updateRefs = true
+[init]
+	defaultBranch = main
+[maintenance]
+	repo = /Users/dersam/world/trees/luau-3hla/src
+	repo = /Users/dersam/world/trees/root/src
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential

@@ -4,7 +4,6 @@
 # over any other customization.
 
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  add-zsh-hook -d precmd bureau_precmd
   _LIBERTY=''
   PROMPT=''
   RPROMPT=''
