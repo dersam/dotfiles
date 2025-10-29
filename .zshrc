@@ -69,3 +69,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+# Added by tec agent
+[[ -x /Users/dersam/.local/state/tec/profiles/base/current/global/init ]] && eval "$(/Users/dersam/.local/state/tec/profiles/base/current/global/init zsh)"
