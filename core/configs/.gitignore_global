@@ -6,13 +6,13 @@
 
 # Ignore bundler config.
 /.bundle
-
+.idea/
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+.junie/
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep

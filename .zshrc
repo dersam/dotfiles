@@ -1,23 +1,15 @@
 # This script is run every time you log in. It's the entrypoint for all shell environment config.
 # Don't modify this file directly, or you'll remove your ability to update against new versions of
-# the dotfiles-starter-template
+# the Shopify dotfiles. Any customizations should be done in the personal/ directory.
 
-export DF_HOME=~/dotfiles
+export DOTFILES_DIRECTORY_NAME=$([ $SPIN ] && echo "shopify-dotfiles" || echo "dotfiles")
+export DF_HOME=~/$DOTFILES_DIRECTORY_NAME
 export DF_CORE=$DF_HOME/core
 export DF_USER=$DF_HOME/personal
 
 # Create common color functions.
 autoload -U colors
 colors
-
-# Include the default Spin zshrc
-# This file has a number of useful functions for detecting the status of the Spin environment.
-# We can still overwrite the terminal display later on, if we want.
-if [ $SPIN ]; then
-  if [ -e /etc/zsh/zshrc.default.inc.zsh ]; then
-    source /etc/zsh/zshrc.default.inc.zsh
-  fi
-fi
 
 # Set up custom environment variables
 source $DF_CORE/environment.zsh
@@ -49,10 +41,23 @@ fi
 
 source $DF_CORE/filter_history.zsh
 
-# Load personalized configs for Spin environments
-source $DF_USER/spin.zsh
-
 source $DF_USER/custom.zsh
 
 # Load changes specific to this local environment.
 source ~/extra.zsh
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+# cloudplatform: add Shopify clusters to your local kubernetes config
+export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/dersam/.kube/config:/Users/dersam/.kube/config.shopify.cloudplatform
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+# Added by tec agent
+[[ -x /Users/dersam/.local/state/tec/profiles/base/current/global/init ]] && eval "$(/Users/dersam/.local/state/tec/profiles/base/current/global/init zsh)"

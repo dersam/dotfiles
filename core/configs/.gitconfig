@@ -1,8 +1,10 @@
 [include]
 
 	# Include user-specific info like git credentials.
-	path = ~/.gitconfig.local
-	path = ~/dotfiles/personal/.gitconfig
+	path = ~/.gitconfig.local # not part of the dotfiles repo. Apply settings for a specific local environment that you don't want everywhere.
+	path = ~/dotfiles/personal/.gitconfig # Your personal gitconfig settings. Anything specific to you that you want everywhere.
+	path = ~/shopify-dotfiles/personal/.gitconfig # gitconfig automatically provided when you're using Spin. Ignored anywhere else.
+	path = /Users/dersam/.config/dev/gitconfig
 
 [alias]
 
@@ -14,7 +16,7 @@
 
   # Custom log formats
 	ll = !git --no-pager log --graph --all --decorate --pretty=format:'%C(auto)%h%d  %ad %C(red bold)(%ar%C(red bold))%Creset  %Creset%C(magenta)%an %Creset<%ae>  %C(white bold)%<(80,trunc)%s' --date=iso
-	l = !git --no-pager log -n 40 --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(blue bold)<%an>%Creset'
+	l = !git --no-pager log -n 5 --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(blue bold)<%an>%Creset'
 
   # View the current working tree status using the short format
 	s = status -s
@@ -34,6 +36,9 @@
   # Forcepush, but fail if the remote has been updated since you last pulled.
   # Prevents clobbering other people's commits on the same branch unless you really, really want to.
   forcepush = push --force-with-lease
+
+  # Add all, and amend most recent commit to include those changes
+	ac = "!git add . && git commend"
 
 [apply]
 
@@ -55,6 +60,7 @@
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
+
 
 [color "branch"]
 
@@ -99,3 +105,13 @@
 	# resolve that same conflict in a future rebase, this setting will reuse your previously recorded conflict resolution.
 	enabled = true
 	autoupdate = true
+[rebase]
+	updateRefs = true
+[init]
+	defaultBranch = main
+[maintenance]
+	repo = /Users/dersam/world/trees/root/src
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
