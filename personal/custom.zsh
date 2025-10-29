@@ -19,3 +19,4 @@ alias sonnet="devx claude --model=sonnet --dangerously-skip-permissions"
 alias opus="devx claude --model=opus --dangerously-skip-permissions"
 
 export MYSQL_EDITOR='mycli'
+PAGER='less'
