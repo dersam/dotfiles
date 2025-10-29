@@ -45,19 +45,3 @@ source $DF_USER/custom.zsh
 
 # Load changes specific to this local environment.
 source ~/extra.zsh
-
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
-
-[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
-
-# cloudplatform: add Shopify clusters to your local kubernetes config
-export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/dersam/.kube/config:/Users/dersam/.kube/config.shopify.cloudplatform
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-
-# Added by tec agent
-[[ -x /Users/dersam/.local/state/tec/profiles/base/current/global/init ]] && eval "$(/Users/dersam/.local/state/tec/profiles/base/current/global/init zsh)"
