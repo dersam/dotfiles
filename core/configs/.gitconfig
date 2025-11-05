@@ -109,9 +109,10 @@
 	updateRefs = true
 [init]
 	defaultBranch = main
-[maintenance]
-	repo = /Users/dersam/world/trees/root/src
 [credential "https://github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[maintenance]
+	repo = /Users/dersam/world/trees/root/src
+	repo = /Users/dersam/world/trees/sandbox/src
