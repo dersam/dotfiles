@@ -12,11 +12,6 @@ ultraflip()
 	echo " ┻━┻ ︵╰(°□°)╯︵ ┻━┻";
 }
 
-# Open VSCode on the current directory
-vs () {
-	code .
-}
-
 # Switch to the `main` branch of your current repo
 cmain () {
   git checkout main

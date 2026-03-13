@@ -2,7 +2,7 @@
 # Don't modify this file directly, or you'll remove your ability to update against new versions of
 # the Shopify dotfiles. Any customizations should be done in the personal/ directory.
 
-export DOTFILES_DIRECTORY_NAME=$([ $SPIN ] && echo "shopify-dotfiles" || echo "dotfiles")
+export DOTFILES_DIRECTORY_NAME="dotfiles"
 export DF_HOME=~/$DOTFILES_DIRECTORY_NAME
 export DF_CORE=$DF_HOME/core
 export DF_USER=$DF_HOME/personal

@@ -12,7 +12,7 @@ colors
 # and that you don't want to follow you across environments.
 touch ~/extra.zsh
 
-DOTFILES_DIRECTORY_NAME=$([ $SPIN ] && echo "shopify-dotfiles" || echo "dotfiles")
+DOTFILES_DIRECTORY_NAME=$(pwd)
 ZSH_HOST_OS=$(uname | awk '{print tolower($0)}')
 
 case $ZSH_HOST_OS in
@@ -25,14 +25,6 @@ case $ZSH_HOST_OS in
 ;;
 esac
 
-# Install the antigen plugin/theme manager if it's not already installed.
-if [[ ! -d $HOME/antigen ]]; then
-	echo -e "Antigen not found, installing..."
-	cd $HOME
-	git clone https://github.com/shopify/antigen.git
-	cd -
-fi
-
 # Symlink core configs
 
 # Link in the custom gitconfig. This has to happen after we rename to .gitconfig.local
@@ -44,4 +36,14 @@ ln -vsfn ~/$DOTFILES_DIRECTORY_NAME/core/configs/.gitignore_global ~/.gitignore_
 # install again. This will overwrite any existing .zshrc.
 ln -vsfn ~/$DOTFILES_DIRECTORY_NAME/.zshrc ~/.zshrc
 
-source ~/$DOTFILES_DIRECTORY_NAME/personal/install.sh
+# Vim
+mkdir -p ~/.vim/swaps
+mkdir -p ~/.vim/backups
+ln -vsfn ~/dotfiles/personal/.vimrc ~/.vimrc
+if [ ! -d ~"/.vim/bundle/Vundle.vim" ]; then
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+vim +PluginInstall +qall
+
+# Tmux
+ln -vsfn ~/dotfiles/personal/.tmux.conf ~/.tmux.conf
